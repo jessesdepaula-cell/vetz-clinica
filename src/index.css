@@ -120,6 +120,13 @@
     @apply text-petroleo-700/80 text-base sm:text-lg leading-relaxed max-w-2xl;
   }
 
+  /* Input padrão da área de membros */
+  .input {
+    @apply w-full px-3.5 py-2.5 rounded-xl border border-petroleo-100 bg-white
+           focus:outline-none focus:ring-2 focus:ring-aqua-300 focus:border-transparent
+           text-sm text-petroleo-900 placeholder-petroleo-400 transition;
+  }
+
   /* Gradiente animado de fundo */
   .bg-animated-gradient {
     background: linear-gradient(120deg, #d3efea 0%, #f6ecd6 35%, #aaded5 70%, #f6ecd6 100%);

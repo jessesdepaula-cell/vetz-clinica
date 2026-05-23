@@ -1,15 +1,15 @@
 import { useEffect, useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Menu, X, Calendar } from 'lucide-react';
-import Logo from './ui/Logo.jsx';
+import { Menu, X, Calendar, LogIn } from 'lucide-react';
+import Wordmark from './ui/Wordmark.jsx';
 import { whatsappLink } from '../App.jsx';
 
 const links = [
   { label: 'Início', href: '#inicio' },
   { label: 'Serviços', href: '#servicos' },
+  { label: 'Produtos', href: '#produtos' },
   { label: 'Sobre', href: '#sobre' },
   { label: 'Estrutura', href: '#estrutura' },
-  { label: 'Depoimentos', href: '#depoimentos' },
   { label: 'Contato', href: '#contato' },
 ];
 
@@ -34,14 +34,14 @@ export default function Navbar() {
       }`}
     >
       <div
-        className={`container-page flex items-center justify-between gap-6 rounded-full transition-all duration-500
+        className={`container-page flex items-center justify-between gap-4 rounded-full transition-all duration-500
           ${scrolled
             ? 'bg-white/85 backdrop-blur-xl border border-petroleo-100 shadow-soft py-2.5 px-4 sm:px-6'
             : 'bg-white/40 backdrop-blur-md border border-white/60 py-3 px-4 sm:px-6'
           }`}
       >
-        <a href="#inicio" aria-label="Vetz - Página inicial" className="cursor-pointer">
-          <Logo size="sm" />
+        <a href="#inicio" aria-label="Vetz - Página inicial" className="cursor-pointer shrink-0">
+          <Wordmark size="sm" animated={false} />
         </a>
 
         {/* Links desktop */}
@@ -50,18 +50,29 @@ export default function Navbar() {
             <a
               key={l.href}
               href={l.href}
-              className="relative px-3.5 py-2 text-sm font-medium text-petroleo-800
+              className="relative px-3 py-2 text-sm font-medium text-petroleo-800
                          hover:text-petroleo-600 transition-colors duration-200
                          rounded-full group cursor-pointer"
             >
               {l.label}
-              <span className="absolute inset-x-3.5 -bottom-0.5 h-0.5 bg-aqua-400 scale-x-0
+              <span className="absolute inset-x-3 -bottom-0.5 h-0.5 bg-aqua-400 scale-x-0
                                group-hover:scale-x-100 transition-transform duration-300 origin-left rounded-full" />
             </a>
           ))}
         </nav>
 
         <div className="flex items-center gap-2">
+          <a
+            href="#membros"
+            className="hidden md:inline-flex items-center gap-1.5 px-4 py-2 rounded-full
+                       bg-white/80 hover:bg-white text-petroleo-700 text-sm font-semibold
+                       border border-petroleo-100 hover:border-petroleo-300
+                       transition-all duration-300 cursor-pointer"
+          >
+            <LogIn className="w-4 h-4" />
+            Entrar
+          </a>
+
           <a
             href={whatsappLink()}
             target="_blank"
@@ -111,6 +122,16 @@ export default function Navbar() {
                     </a>
                   </li>
                 ))}
+                <li>
+                  <a
+                    href="#membros"
+                    onClick={() => setOpen(false)}
+                    className="flex items-center gap-2 px-4 py-3 rounded-2xl bg-petroleo-50 text-petroleo-800 font-semibold cursor-pointer"
+                  >
+                    <LogIn className="w-4 h-4" />
+                    Entrar — Área de Membros
+                  </a>
+                </li>
                 <li className="mt-2">
                   <a
                     href={whatsappLink()}
