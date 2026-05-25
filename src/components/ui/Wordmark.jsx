@@ -15,10 +15,10 @@ const SRC = {
 };
 
 const SIZES = {
-  sm: 'h-7',
-  md: 'h-10',
-  lg: 'h-16',
-  xl: 'h-24',
+  sm: 'h-10',
+  md: 'h-14',
+  lg: 'h-24',
+  xl: 'h-40',
 };
 
 export default function Wordmark({

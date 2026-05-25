@@ -14,10 +14,10 @@ const SRC = {
 };
 
 const SIZES = {
-  sm: 'h-8',
-  md: 'h-12',
-  lg: 'h-20',
-  xl: 'h-28',
+  sm: 'h-12',
+  md: 'h-16',
+  lg: 'h-32',
+  xl: 'h-44',
 };
 
 export default function Logo({ variant = 'petroleo', size = 'md', animated = true, className = '' }) {
