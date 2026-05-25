@@ -104,6 +104,21 @@ export default function Footer() {
           <p>© 2026 Vetz. Todos os direitos reservados.</p>
           <p>Feito com <span className="text-red-400">♥</span> para tutores e seus pets.</p>
         </div>
+
+        {/* Crédito do desenvolvedor */}
+        <div className="mt-4 text-center text-xs text-creme/50">
+          <p>
+            Site desenvolvido por{' '}
+            <a
+              href="https://bilytech.com.br/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="font-semibold text-aqua-300 hover:text-aqua-200 transition-colors cursor-pointer underline-offset-2 hover:underline"
+            >
+              BilyTech
+            </a>
+          </p>
+        </div>
       </div>
     </footer>
   );
