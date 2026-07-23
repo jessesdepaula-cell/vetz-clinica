@@ -12,6 +12,7 @@ import FinalCTA from './components/sections/FinalCTA.jsx';
 import Footer from './components/sections/Footer.jsx';
 import BrandBanner from './components/sections/BrandBanner.jsx';
 import MembersArea from './pages/MembersArea.jsx';
+import PreApproval from './pages/PreApproval.jsx';
 
 // Número e mensagem para o WhatsApp (substituir pelo número real)
 export const WHATSAPP_NUMBER = '5500000000000';
@@ -34,11 +35,17 @@ function useHashRoute() {
 export default function App() {
   const hash = useHashRoute();
   const isMembers = hash.startsWith('#membros') || hash.startsWith('#/membros');
+  const isPreApproval =
+    hash.startsWith('#pre-aprovacao') || hash.startsWith('#/pre-aprovacao');
 
-  // Garante que ao abrir /membros não fique scrollado num âncora antiga
+  // Garante que ao abrir uma subpágina não fique scrollado num âncora antiga
   useEffect(() => {
-    if (isMembers) window.scrollTo({ top: 0, behavior: 'instant' });
-  }, [isMembers]);
+    if (isMembers || isPreApproval) window.scrollTo({ top: 0, behavior: 'instant' });
+  }, [isMembers, isPreApproval]);
+
+  if (isPreApproval) {
+    return <PreApproval />;
+  }
 
   if (isMembers) {
     return <MembersArea />;
